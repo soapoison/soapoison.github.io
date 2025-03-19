@@ -27,7 +27,7 @@
 <meta property="og:description" content="前言该篇博客旨在忘记STL用法时查询 pair二元组，可以组合任意两个不同类型（或相同类型）的元素。 1#include&lt;utility&gt;  成员变量   变量名 内容    first 第一个值   second 第二个值    stack栈。只允许在栈顶进行插入和删除操作。 1#include&lt;stack&gt;  定义与初始化12std::stack&lt;int&gt;">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-03-19T04:06:29.000Z">
-<meta property="article:modified_time" content="2025-03-19T05:11:15.183Z">
+<meta property="article:modified_time" content="2025-03-19T08:16:07.137Z">
 <meta property="article:author" content="Soapoison">
 <meta property="article:tag" content="STL">
 <meta name="twitter:card" content="summary_large_image">
@@ -223,7 +223,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          961 字
+          1.1k 字
         
       </span>
     
@@ -234,7 +234,7 @@
         
         
         
-          9 分钟
+          10 分钟
         
       </span>
     
@@ -483,7 +483,7 @@
 <h2 id="map"><a href="#map" class="headerlink" title="map"></a>map</h2><p>映射。相当于 <strong>[]</strong> 内可填任意键值（可以是 <strong>int</strong> , <strong>double</strong> 等任意类型的对象）的数组</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#incldue<span class="hljs-string">&lt;map&gt;</span></span><br></code></pre></td></tr></table></figure>
 
-<h3 id="定义与初始化-3"><a href="#定义与初始化-3" class="headerlink" title="定义与初始化"></a>定义与初始化</h3><figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs arduino">std::map&lt;<span class="hljs-type">int</span>, <span class="hljs-type">int</span>&gt; m1;<br><br>std::map&lt;<span class="hljs-type">char</span>, <span class="hljs-type">int</span>&gt; m2 = &#123; &#123;<span class="hljs-string">&#x27;a&#x27;</span>, <span class="hljs-number">3</span>&#125;, &#123;<span class="hljs-string">&#x27;b&#x27;</span>, <span class="hljs-number">2</span>&#125;, &#123;<span class="hljs-string">&#x27;c&#x27;</span>, <span class="hljs-number">1</span>&#125; &#125;;<br>m2 = &#123; &#123;<span class="hljs-string">&#x27;a&#x27;</span>, <span class="hljs-number">3</span>&#125;, &#123;<span class="hljs-string">&#x27;b&#x27;</span>, <span class="hljs-number">2</span>&#125;, &#123;<span class="hljs-string">&#x27;c&#x27;</span>, <span class="hljs-number">1</span>&#125; &#125;<br></code></pre></td></tr></table></figure>
+<h3 id="定义和初始化-1"><a href="#定义和初始化-1" class="headerlink" title="定义和初始化"></a>定义和初始化</h3><figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs arduino">std::map&lt;<span class="hljs-type">int</span>, <span class="hljs-type">int</span>&gt; m1;<br><br>std::map&lt;<span class="hljs-type">char</span>, <span class="hljs-type">int</span>&gt; m2 = &#123; &#123;<span class="hljs-string">&#x27;a&#x27;</span>, <span class="hljs-number">3</span>&#125;, &#123;<span class="hljs-string">&#x27;b&#x27;</span>, <span class="hljs-number">2</span>&#125;, &#123;<span class="hljs-string">&#x27;c&#x27;</span>, <span class="hljs-number">1</span>&#125; &#125;;<br>m2 = &#123; &#123;<span class="hljs-string">&#x27;a&#x27;</span>, <span class="hljs-number">3</span>&#125;, &#123;<span class="hljs-string">&#x27;b&#x27;</span>, <span class="hljs-number">2</span>&#125;, &#123;<span class="hljs-string">&#x27;c&#x27;</span>, <span class="hljs-number">1</span>&#125; &#125;<br></code></pre></td></tr></table></figure>
 
 <h3 id="成员函数-4"><a href="#成员函数-4" class="headerlink" title="成员函数"></a>成员函数</h3><table>
 <thead>
@@ -531,6 +531,55 @@
 <tr>
 <td>erase(key)</td>
 <td>删除从 <strong>key</strong> 出发的映射</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="set"><a href="#set" class="headerlink" title="set"></a>set</h2><p>集合。插入其中的每种元素都只保留其一，并自动升序排序。</p>
+<blockquote>
+<p>STL 提供 multiset (多重集)，相同的元素允许存在多个，其他功能与 set 一致</p>
+</blockquote>
+<figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs arduino"><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;set&gt;</span> </span><br></code></pre></td></tr></table></figure>
+
+<h3 id="定义和初始化-2"><a href="#定义和初始化-2" class="headerlink" title="定义和初始化"></a>定义和初始化</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs cpp">std::set&lt;<span class="hljs-type">int</span>&gt; s1;<br><span class="hljs-comment">//s1 = &#123;&#125;</span><br><br>std::set&lt;<span class="hljs-type">int</span>&gt; s2 = &#123;<span class="hljs-string">&#x27;a&#x27;</span>, <span class="hljs-string">&#x27;p&#x27;</span>, <span class="hljs-string">&#x27;p&#x27;</span>, <span class="hljs-string">&#x27;l&#x27;</span>, <span class="hljs-string">&#x27;e&#x27;</span>&#125;;<br><span class="hljs-comment">//s2 = &#123;&#x27;a&#x27;, &#x27;e&#x27;, &#x27;l&#x27;, &#x27;p&#x27;&#125;</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="成员函数-5"><a href="#成员函数-5" class="headerlink" title="成员函数"></a>成员函数</h3><table>
+<thead>
+<tr>
+<th>函数名</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>begin()</td>
+<td>返回头部迭代器</td>
+</tr>
+<tr>
+<td>end()</td>
+<td>返回尾部迭代器</td>
+</tr>
+<tr>
+<td>empty()</td>
+<td>返回是否为空</td>
+</tr>
+<tr>
+<td>size()</td>
+<td>返回元素个数</td>
+</tr>
+<tr>
+<td>clear()</td>
+<td>清空</td>
+</tr>
+<tr>
+<td>insert(value)</td>
+<td>插入 <strong>value</strong></td>
+</tr>
+<tr>
+<td>pop(value)</td>
+<td>删除 <strong>value</strong></td>
+</tr>
+<tr>
+<td>count(value)</td>
+<td>返回 <strong>value</strong> 的个数</td>
 </tr>
 </tbody></table>
 <hr>
