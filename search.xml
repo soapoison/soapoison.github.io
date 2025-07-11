@@ -506,4 +506,20 @@ Bellman-Ford 算法所做的，就是不断尝试对图上每一条边进行松�
         <tag>最短路</tag>
       </tags>
   </entry>
+  <entry>
+    <title>CF316B2</title>
+    <url>/2025/07/11/CF316B2/</url>
+    <content><![CDATA[<h1>题目</h1>
+<h2 id="CF316B2-EKG"><a href="https://codeforces.com/problemset/problem/316/B2">CF316B2 EKG</a></h2>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br>    <span class="hljs-type">int</span> n, y;<br>    cin &gt;&gt; n &gt;&gt; y;<br>    <span class="hljs-function">vector&lt;<span class="hljs-type">int</span>&gt; <span class="hljs-title">a</span><span class="hljs-params">(n + <span class="hljs-number">5</span>)</span></span>;<br>    <span class="hljs-function">vector&lt;<span class="hljs-type">int</span>&gt; <span class="hljs-title">p</span><span class="hljs-params">(n + <span class="hljs-number">5</span>)</span></span>;<br>    vector&lt;<span class="hljs-type">int</span>&gt; head;<br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>;i &lt;= n;i ++) &#123;<br>        cin &gt;&gt; a[i];<br>        <span class="hljs-keyword">if</span>(a[i] != <span class="hljs-number">0</span>) &#123;<br>            p[a[i]] = i;<br>        &#125;<br>        <span class="hljs-keyword">else</span> head.<span class="hljs-built_in">push_back</span>(i);<br>    &#125;<br>    vector&lt;<span class="hljs-type">int</span>&gt; v;<br>    <span class="hljs-type">int</span> smart;<br>    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">auto</span> x : head) &#123;<br>        <span class="hljs-type">int</span> cnt = <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">while</span>(x) &#123;<br>            ++ cnt;<br>            <span class="hljs-keyword">if</span>(x == y) &#123;<br>                smart = cnt;<br>                <span class="hljs-keyword">break</span>;<br>            &#125;<br>            x = p[x];<br>        &#125;<br>        <span class="hljs-keyword">if</span>(!x) v.<span class="hljs-built_in">push_back</span>(cnt);<br>    &#125;<br>    bitset&lt;1005&gt; dp;<br>    dp.<span class="hljs-built_in">set</span>(smart);<br>    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">auto</span> x : v) &#123;<br>        dp |= dp &lt;&lt; x;<br>    &#125;<br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>;i &lt;= n;i ++) &#123;<br>        <span class="hljs-keyword">if</span>(dp[i]) cout &lt;&lt; i &lt;&lt; endl;<br>    &#125;<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h2 id="bitset优化01背包">bitset优化01背包</h2>
+<p>dp 存储能表示的数，dp &lt;&lt; x相当于在原来的所有能表示的数上再加上 x，dp |= dp &lt;&lt; x则表示原来能表示的数和加上 x 后能表示的所有数。</p>
+<blockquote>
+<p>dp.set(smart) 即对 smart 位设为1， 设为 0 则为 reset。</p>
+</blockquote>
+]]></content>
+      <tags>
+        <tag>-题解 -bitset背包</tag>
+      </tags>
+  </entry>
 </search>
